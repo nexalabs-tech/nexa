@@ -97,7 +97,7 @@ section{
     padding:15px 35px;
     margin:10px;
     background:#4da3ff;
-    color:red;
+    color:white;
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
@@ -130,20 +130,63 @@ footer{
     padding:25px;
     color:#aaa;
 }
+.logo img{
+    height:55px;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media (max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav ul{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:75px;
+        right:20px;
+        background:#111827;
+        width:200px;
+        padding:15px;
+        border-radius:10px;
+    }
+
+    nav ul.show{
+        display:flex;
+    }
+
+    nav ul li{
+        margin:10px 0;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<img src="assets/logo.jpg" alt="Nexa Logo">
+    <div class="logo">
+        <img src="assets/logo.jpg" alt="Nexa Logo">
+    </div>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
 <section class="hero" id="home">
@@ -169,9 +212,7 @@ footer{
 <br>
 
 <p>
-Nexa.*™ is an all-purpose technology company focused on Artificial Intelligence,
-software engineering, cybersecurity, blockchain, websites,
-mobile applications and digital innovation.
+Nexa.*™ is a technology company dedicated to building intelligent digital solutions for businesses and individuals. Our expertise spans Artificial Intelligence, software engineering, cybersecurity, web development, mobile applications and emerging technologies. We believe in creating innovative solutions that empower people and organizations to thrive in the digital world.
 </p>
 
 </section>
@@ -216,20 +257,6 @@ mobile applications and digital innovation.
 
 </section>
 
-<section>
-
-<h2>Founder & CEO</h2>
-
-<br>
-
-<h3>Kiptoo Collins (CKTOO)</h3>
-
-<p>
-Founder & CEO of Nexa.*™
-</p>
-
-</section>
-
 <section id="contact">
 
 <h2>Contact Us</h2>
@@ -243,12 +270,39 @@ Founder & CEO of Nexa.*™
 <a class="btn" href="mailto:nexalabs254@gmail.com">Send Email</a>
 
 </section>
+<section id="projects">
 
+<h2>Featured Projects</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌐 Nexa Website</h3>
+<p>The official website showcasing our services and innovation.</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI Solutions</h3>
+<p>Custom AI tools designed to automate and improve businesses.</p>
+</div>
+
+<div class="card">
+<h3>📱 Mobile Apps</h3>
+<p>Modern Android and iOS applications built for performance.</p>
+</div>
+
+</div>
+
+</section>
 <footer>
 
 © 2026 Nexa.*™ • Innovate • Build • Elevate
 
 </footer>
-
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
 </body>
 </html>
