@@ -6,6 +6,10 @@
 <title>Nexa.*™ | Innovate • Build • Elevate</title>
 
 <style>
+html{
+    scroll-behavior:smooth;
+}
+
 *{
     margin:0;
     padding:0;
@@ -19,6 +23,7 @@ body{
     background:linear-gradient(-45deg,#050816,#0b0f1a,#111827,#1e3a8a);
     background-size:400% 400%;
     animation:gradient 12s ease infinite;
+    padding-top:80px;
 }
 
 @keyframes gradient{
@@ -30,38 +35,35 @@ body{
 nav{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
-    background:rgba(17,24,39,0.7);
-    backdrop-filter:blur(12px);
+    padding:15px 25px;
+    background:rgba(17,24,39,.95);
+    backdrop-filter:blur(15px);
     z-index:1000;
-}
-
-nav img{
-    height:55px;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
 
 nav ul{
     display:flex;
     list-style:none;
-}
-
-nav ul li{
-    margin-left:25px;
+    gap:30px;
 }
 
 nav ul li a{
-    color:green;
+    color:white;
     text-decoration:none;
     font-weight:bold;
+    transition:.3s;
 }
 
 nav ul li a:hover{
     color:#4da3ff;
 }
+
 
 section{
     padding:100px 25px;
@@ -169,6 +171,9 @@ footer{
         margin:10px 0;
     }
 }
+.active{
+    color:#4da3ff !important;
+}
 </style>
 </head>
 
@@ -209,11 +214,59 @@ footer{
 
 <h2>About Nexa</h2>
 
-<br>
+<div class="cards">
 
+<div class="card">
+<h3>🎯 Our Mission</h3>
 <p>
-Nexa.*™ is a technology company dedicated to building intelligent digital solutions for businesses and individuals. Our expertise spans Artificial Intelligence, software engineering, cybersecurity, web development, mobile applications and emerging technologies. We believe in creating innovative solutions that empower people and organizations to thrive in the digital world.
+To create intelligent technology solutions that help businesses and individuals innovate, grow, and succeed in the digital world.
 </p>
+</div>
+
+<div class="card">
+<h3>👁️ Our Vision</h3>
+<p>
+To become one of Africa's leading technology companies, delivering world-class AI, software, and cybersecurity solutions.
+</p>
+</div>
+
+<div class="card">
+<h3>💙 Our Values</h3>
+<p>
+Innovation, Integrity, Excellence, Collaboration, and Customer Success are at the heart of everything we build.
+</p>
+</div>
+
+</div>
+
+</section><section id="about">
+
+<h2>About Nexa</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🎯 Our Mission</h3>
+<p>
+To create intelligent technology solutions that help businesses and individuals innovate, grow, and succeed in the digital world.
+</p>
+</div>
+
+<div class="card">
+<h3>👁️ Our Vision</h3>
+<p>
+To become one of Africa's leading technology companies, delivering world-class AI, software, and cybersecurity solutions.
+</p>
+</div>
+
+<div class="card">
+<h3>💙 Our Values</h3>
+<p>
+Innovation, Integrity, Excellence, Collaboration, and Customer Success are at the heart of everything we build.
+</p>
+</div>
+
+</div>
 
 </section>
 
