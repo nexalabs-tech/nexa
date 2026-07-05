@@ -225,7 +225,33 @@ footer{
     color:red;
     margin-bottom:30px;
 }
+form{
+    max-width:600px;
+    margin:40px auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
 
+form input,
+form textarea{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+}
+
+form input::placeholder,
+form textarea::placeholder{
+    color:#cccccc;
+}
+
+form input:focus,
+form textarea:focus{
+    outline:2px solid #4da3ff;
+}
 </style>
 </head>
 
@@ -393,15 +419,27 @@ Innovation, Integrity, Excellence, Collaboration, and Customer Success are at th
 
 <section id="contact">
 
-<h2>Contact Us</h2>
+<h2>Contact Nexa</h2>
 
-<br>
+<p>Have a project in mind? We'd love to hear from you.</p>
 
-<p>📧 nexalabs254@gmail.com</p>
+<form>
 
-<br>
+<input type="text" placeholder="Your Name" required>
 
-<a class="btn" href="mailto:nexalabs254@gmail.com">Send Email</a>
+<input type="email" placeholder="Your Email" required>
+
+<input type="text" placeholder="Subject">
+
+<textarea placeholder="Your Message" rows="6" required></textarea>
+
+<button type="submit" class="btn">Send Message</button>
+
+</form>
+
+<p style="margin-top:20px;">
+📧 nexalabs254@gmail.com
+</p>
 
 </section>
 
