@@ -395,6 +395,29 @@ form select:focus{
     color:white;
     cursor:pointer;
 }
+#chat-toggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#4da3ff;
+    color:white;
+    border:none;
+    padding:15px 20px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 0 15px rgba(77,163,255,.5);
+    z-index:1000;
+}
+
+#chatbot{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:320px;
+    max-width:90%;
+    z-index:1000;
+}
 </style>
 </head>
 
@@ -712,7 +735,11 @@ function topFunction() {
 }
 </script>
 
-<div id="chatbot">
+<button id="chat-toggle" onclick="toggleChat()">
+🤖 Nexa AI
+</button>
+
+<div id="chatbot" style="display:none;">
     <div id="chat-header">
         🤖 Nexa AI
     </div>
@@ -731,6 +758,19 @@ function topFunction() {
 </div>
 
 <script>
+
+function toggleChat(){
+
+    let chat=document.getElementById("chatbot");
+
+    if(chat.style.display==="none"){
+        chat.style.display="block";
+    }else{
+        chat.style.display="none";
+    }
+
+}
+
 function reply(){
 
     let input = document.getElementById("userInput").value.toLowerCase();
