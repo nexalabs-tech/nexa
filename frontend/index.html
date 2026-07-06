@@ -397,7 +397,7 @@ Innovation, Integrity, Excellence, Collaboration, and Customer Success are at th
 <div class="cards">
 
 <div class="card">
-<h1>10+</h1>
+<h1 class="counter" data-target="10">0</h1>
 <p>Technology Services</p>
 </div>
 
@@ -407,7 +407,7 @@ Innovation, Integrity, Excellence, Collaboration, and Customer Success are at th
 </div>
 
 <div class="card">
-<h1>100%</h1>
+<h1 class="counter" data-target="100">0</h1>
 <p>Commitment to Quality</p>
 </div>
 
@@ -556,6 +556,28 @@ window.addEventListener("load", function(){
         },600);
 
     },1200);
+});
+</script>
+
+<script>
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
+
+    const update = () => {
+        const increment = Math.ceil(target / 50);
+
+        if (count < target) {
+            count += increment;
+            if (count > target) count = target;
+            counter.textContent = count;
+            setTimeout(update, 30);
+        }
+    };
+
+    update();
 });
 </script>
 </body>
