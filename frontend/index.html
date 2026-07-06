@@ -396,11 +396,8 @@ form select:focus{
     cursor:pointer;
 }
 #chat-toggle{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#4da3ff;
-    color:white;
+    background:green;
+    color:black;
     border:none;
     padding:15px 20px;
     border-radius:50px;
@@ -428,11 +425,18 @@ form select:focus{
     <p>Loading Innovation...</p>
 </div>
 <nav>
+
     <div class="logo">
         <img src="assets/logo.jpg" alt="Nexa Logo">
     </div>
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button id="chat-toggle" onclick="toggleChat()">
+        🤖 Nexa AI
+    </button>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </button>
 
     <ul id="menu">
         <li><a href="#home">Home</a></li>
