@@ -342,6 +342,59 @@ form textarea:focus{
 #topBtn:hover{
     transform:scale(1.1);
 }
+form select{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+}
+
+form select:focus{
+    outline:2px solid #4da3ff;
+}
+#chatbot{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    width:300px;
+    background:#111827;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+    z-index:999;
+}
+
+#chat-header{
+    background:#4da3ff;
+    color:white;
+    padding:12px;
+    font-weight:bold;
+}
+
+#chat-body{
+    height:180px;
+    overflow-y:auto;
+    padding:10px;
+    color:white;
+}
+
+#chatbot input{
+    width:100%;
+    padding:10px;
+    border:none;
+    box-sizing:border-box;
+}
+
+#chatbot button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#4da3ff;
+    color:white;
+    cursor:pointer;
+}
 </style>
 </head>
 
@@ -511,6 +564,41 @@ Innovation, Integrity, Excellence, Collaboration, and Customer Success are at th
 
 </section>
 
+<section id="quote">
+
+<h2>Request a Quote</h2>
+
+<p>Tell us about your project and we'll get back to you with a customized quotation.</p>
+
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number">
+
+<select required>
+    <option value="">Select a Service</option>
+    <option>Artificial Intelligence</option>
+    <option>Website Development</option>
+    <option>Mobile App Development</option>
+    <option>Software Development</option>
+    <option>Cybersecurity</option>
+    <option>Cloud Solutions</option>
+    <option>IT Consulting</option>
+</select>
+
+<input type="text" placeholder="Estimated Budget">
+
+<textarea rows="6" placeholder="Describe your project..." required></textarea>
+
+<button class="btn" type="submit">Request Quote</button>
+
+</form>
+
+</section>
+
 <section id="contact" class="hidden">
 
 <h2>Contact Nexa</h2>
@@ -621,6 +709,57 @@ function topFunction() {
         top: 0,
         behavior: "smooth"
     });
+}
+</script>
+
+<div id="chatbot">
+    <div id="chat-header">
+        🤖 Nexa AI
+    </div>
+
+    <div id="chat-body">
+        <p><strong>Nexa AI:</strong> Hello! How can I help you today?</p>
+    </div>
+
+    <input
+        type="text"
+        id="userInput"
+        placeholder="Ask about our services..."
+    >
+
+    <button onclick="reply()">Send</button>
+</div>
+
+<script>
+function reply(){
+
+    let input = document.getElementById("userInput").value.toLowerCase();
+
+    let answer = "Thank you for contacting Nexa. We'll be happy to assist you.";
+
+    if(input.includes("website")){
+        answer = "Nexa builds modern, responsive websites for businesses.";
+    }
+
+    else if(input.includes("ai")){
+        answer = "We develop AI assistants, automation tools, and intelligent software.";
+    }
+
+    else if(input.includes("app")){
+        answer = "We build Android, iOS, and cross-platform mobile applications.";
+    }
+
+    else if(input.includes("price") || input.includes("cost")){
+        answer = "Project pricing depends on your requirements. Please request a quote.";
+    }
+
+    document.getElementById("chat-body").innerHTML +=
+    "<p><strong>You:</strong> "+input+"</p>";
+
+    document.getElementById("chat-body").innerHTML +=
+    "<p><strong>Nexa AI:</strong> "+answer+"</p>";
+
+    document.getElementById("userInput").value="";
 }
 </script>
 </body>
