@@ -642,15 +642,15 @@ Innovation, Integrity, Excellence, Collaboration, and Customer Success are at th
 
 <p>Tell us about your project and we'll get back to you with a customized quotation.</p>
 
-<form>
+<form id="quoteForm">
 
-<input type="text" placeholder="Full Name" required>
+<input id="name" type="text" placeholder="Full Name" required>
 
-<input type="email" placeholder="Email Address" required>
+<input id="email" type="email" placeholder="Email Address" required>
 
-<input type="tel" placeholder="Phone Number">
+<input id="phone" type="tel" placeholder="Phone Number">
 
-<select required>
+<select id="service" required>
     <option value="">Select a Service</option>
     <option>Artificial Intelligence</option>
     <option>Website Development</option>
@@ -661,9 +661,9 @@ Innovation, Integrity, Excellence, Collaboration, and Customer Success are at th
     <option>IT Consulting</option>
 </select>
 
-<input type="text" placeholder="Estimated Budget">
+<input id="budget" type="text" placeholder="Estimated Budget">
 
-<textarea rows="6" placeholder="Describe your project..." required></textarea>
+<textarea id="description" rows="6" placeholder="Describe your project..." required></textarea>
 
 <button class="btn" type="submit">Request Quote</button>
 
@@ -848,6 +848,36 @@ function reply(){
 
     document.getElementById("userInput").value="";
 }
+</script>
+<script>
+document.getElementById("quoteForm").addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        service: document.getElementById("service").value,
+        budget: document.getElementById("budget").value,
+        description: document.getElementById("description").value
+    };
+
+    const response = await fetch("/api/quote",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    alert(result.message);
+
+    document.getElementById("quoteForm").reset();
+
+});
 </script>
 </body>
 </html>
