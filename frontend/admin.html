@@ -77,18 +77,50 @@ header{
 </div>
 
 </div>
+<h2 style="text-align:center;margin-top:40px;">Quote Requests</h2>
+
+<div id="quote-list"></div>
 <script>
+
+// Dashboard data
 fetch("/api/dashboard")
-.then(res => res.json())
-.then(data => {
-    document.getElementById("quotes").textContent = data.quoteRequests;
-    document.getElementById("clients").textContent = data.clients;
-    document.getElementById("projects").textContent = data.projects;
-    document.getElementById("api").textContent = data.api;
-})
-.catch(() => {
-    document.getElementById("api").textContent = "Offline";
+.then(res=>res.json())
+.then(data=>{
+    document.getElementById("quotes").textContent=data.quoteRequests;
+    document.getElementById("clients").textContent=data.clients;
+    document.getElementById("projects").textContent=data.projects;
+    document.getElementById("api").textContent=data.api;
 });
+
+// Quote requests
+fetch("/api/quotes")
+.then(res=>res.json())
+.then(quotes=>{
+
+    const list=document.getElementById("quote-list");
+
+    if(quotes.length===0){
+        list.innerHTML="<p style='text-align:center;'>No quote requests yet.</p>";
+        return;
+    }
+
+    quotes.forEach(q=>{
+
+        list.innerHTML+=`
+        <div class="card">
+            <h3>${q.name}</h3>
+            <p><strong>Email:</strong> ${q.email}</p>
+            <p><strong>Phone:</strong> ${q.phone}</p>
+            <p><strong>Service:</strong> ${q.service}</p>
+            <p><strong>Budget:</strong> ${q.budget}</p>
+            <p>${q.description}</p>
+        </div>
+        `;
+
+    });
+
+});
+
 </script>
 </body>
 </html>
