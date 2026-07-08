@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
+const quotes = [];
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
@@ -34,7 +35,7 @@ app.get("/api/services", (req, res) => {
 app.post("/api/quote", (req, res) => {
 
     const quote = req.body;
-
+    quotes.push(quote);
     console.log("New Quote Request:");
     console.log(quote);
 
@@ -51,6 +52,9 @@ app.get("/api/dashboard", (req, res) => {
         projects: 0,
         api: "Online"
     });
+});
+app.get("/api/quotes", (req, res) => {
+    res.json(quotes);
 });
 app.listen(PORT, () => {
     console.log(`🚀 Nexa API running on port ${PORT}`);
