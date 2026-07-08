@@ -57,26 +57,38 @@ header{
 <div class="dashboard">
 
 <div class="card">
-<h2>0</h2>
+<h2 id="quotes">0</h2>
 <p>Quote Requests</p>
 </div>
 
 <div class="card">
-<h2>0</h2>
+<h2 id="clients">0</h2>
 <p>Clients</p>
 </div>
 
 <div class="card">
-<h2>0</h2>
+<h2 id="projects">0</h2>
 <p>Projects</p>
 </div>
 
 <div class="card">
-<h2>Online</h2>
+<h2 id="api">Loading...</h2>
 <p>API Status</p>
 </div>
 
 </div>
-
+<script>
+fetch("/api/dashboard")
+.then(res => res.json())
+.then(data => {
+    document.getElementById("quotes").textContent = data.quoteRequests;
+    document.getElementById("clients").textContent = data.clients;
+    document.getElementById("projects").textContent = data.projects;
+    document.getElementById("api").textContent = data.api;
+})
+.catch(() => {
+    document.getElementById("api").textContent = "Offline";
+});
+</script>
 </body>
 </html>

@@ -44,7 +44,14 @@ app.post("/api/quote", (req, res) => {
     });
 
 });
-
+app.get("/api/dashboard", (req, res) => {
+    res.json({
+        quoteRequests: 0,
+        clients: 0,
+        projects: 0,
+        api: "Online"
+    });
+});
 app.listen(PORT, () => {
     console.log(`🚀 Nexa API running on port ${PORT}`);
 });
