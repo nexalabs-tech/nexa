@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa Clients</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#050816;
+    color:white;
+}
+
+header{
+    background:#111827;
+    padding:20px;
+    text-align:center;
+    color:#4da3ff;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.client-card{
+    background:#111827;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 0 15px rgba(77,163,255,.2);
+}
+
+.client-card h3{
+    color:#4da3ff;
+    margin-top:0;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    background:orange;
+    color:white;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+👥 Nexa Clients
+</header>
+
+<div class="container">
+
+<div id="clients-list">
+
+<p style="text-align:center;">Loading clients...</p>
+
+</div>
+
+</div>
+
+<script>
+
+fetch("/api/quotes")
+.then(response=>response.json())
+.then(clients=>{
+
+const list=document.getElementById("clients-list");
+
+if(clients.length===0){
+    list.innerHTML="<p>No clients yet.</p>";
+    return;
+}
+
+list.innerHTML="";
+
+clients.forEach(client=>{
+
+list.innerHTML+=`
+
+<div class="client-card">
+
+<h3>${client.name}</h3>
+
+<p><strong>Email:</strong> ${client.email}</p>
+
+<p><strong>Phone:</strong> ${client.phone}</p>
+
+<p><strong>Service:</strong> ${client.service}</p>
+
+<p><strong>Budget:</strong> ${client.budget}</p>
+
+<p><strong>Description:</strong> ${client.description}</p>
+
+<span class="status">Pending</span>
+
+</div>
+
+`;
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
